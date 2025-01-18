@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #005f5f;
+        }
+        button {
+            background-color: #008cba;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f5f;
+        }
+        #content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Interactive Web Page</h1>
+    <p>This is a paragraph with some <b>bold</b> text.</p>
+    <button onclick="showAlert()">Click Me</button>
+    <div id="content"></div>
+
+    <script>
+        function showAlert() {
+            alert("Button clicked!");
+        }
+
+        const contentDiv = document.getElementById("content");
+
+        function createContent() {
+            const newParagraph = document.createElement("p");
+            newParagraph.textContent = "This content was dynamically added with JavaScript.";
+            contentDiv.appendChild(newParagraph);
+
+            const newList = document.createElement("ul");
+            for (let i = 1; i <= 5; i++) {
+                const listItem = document.createElement("li");
+                listItem.textContent = "List item " + i;
+                newList.appendChild(listItem);
+            }
+            contentDiv.appendChild(newList);
+        }
+
+        createContent();
+    </script>
+</body>
+</html>
