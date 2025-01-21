@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Baking Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #ff6347;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+        button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Baking Blog!</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Featured Recipe: Chocolate Cake</h2>
+        <p>Learn how to make a delicious chocolate cake from scratch.</p>
+        <button id="toggle-recipe">Show Recipe</button>
+        <div id="recipe-details" style="display:none;">
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>1 cup sugar</li>
+                <li>1/2 cup butter</li>
+                <li>2 eggs</li>
+                <li>1 1/2 cups flour</li>
+                <li>1/2 cup cocoa powder</li>
+                <li>1 tsp baking powder</li>
+                <li>1/2 tsp salt</li>
+                <li>1/2 cup milk</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Preheat oven to 350°F (175°C).</li>
+                <li>Cream together the sugar and butter.</li>
+                <li>Beat in the eggs, one at a time.</li>
+                <li>Combine the flour, cocoa, baking powder, and salt.</li>
+                <li>Gradually add to the creamed mixture alternately with milk.</li>
+                <li>Pour batter into a greased and floured baking pan.</li>
+                <li>Bake for 30-35 minutes, or until a toothpick comes out clean.</li>
+                <li>Let cool before serving. Enjoy!</li>
+            </ol>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-recipe').addEventListener('click', function() {
+            var recipeDetails = document.getElementById('recipe-details');
+            if (recipeDetails.style.display === 'none') {
+                recipeDetails.style.display = 'block';
+                this.textContent = 'Hide Recipe';
+            } else {
+                recipeDetails.style.display = 'none';
+                this.textContent = 'Show Recipe';
+            }
+        });
+    </script>
+</body>
+</html>
