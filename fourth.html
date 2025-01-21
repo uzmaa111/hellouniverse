@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fun and easy place to learn baking with great recipes, tips, and an online store for all your baking needs!">
+    <title>Baking Delights</title>
+    <style>
+        /* Basic reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light Ocean Blue */
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #00b4d8; /* Ocean Blue */
+            padding: 20px 0;
+            color: white;
+        }
+
+        header .logo {
+            text-align: center;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ff7f50; /* Coral color for hover effect */
+        }
+
+        /* Section styling */
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #00b4d8; /* Ocean Blue */
+        }
+
+        /* Recipe and Product Cards */
+        .recipe-card, .product-card {
+            display: inline-block;
+            width: 30%;
+            margin: 10px;
+            background-color: #e0f7fa; /* Light Aqua */
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .recipe-card img, .product-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-card button {
+            background-color: #00b4d8; /* Ocean Blue */
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #007a8c; /* Darker Ocean Blue */
+        }
+
+        /* Recipe details (hidden by default) */
+        .recipe-details {
+            display: none;
+            background-color: #f1f8ff; /* Light Sky Blue */
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #b2ebf2;
+        }
+
+        .recipe-details h3 {
+            color: #007a8c; /* Dark Ocean Blue */
+        }
+
+        .recipe-details p {
+            margin-bottom: 10px;
+        }
+
+        /* Show recipe details when expanded */
+        .recipe-card.expanded .recipe-details {
+            display: block;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            margin: auto;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #b2ebf2; /* Light Aqua Border */
+            border-radius: 8px;
+            background-color: #f1f8ff; /* Light Sky Blue */
+        }
+
+        form button {
+            background-color: #00b4d8; /* Ocean Blue */
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #007a8c; /* Darker Ocean Blue */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #00b4d8; /* Ocean Blue */
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer .social-media a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-media a:hover {
+            color: #ff7f50; /* Coral Color */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Baking Delights</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#store">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login</a></li> <!-- Login link -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Homepage Section -->
+    <section id="home">
+        <h2>Welcome to Baking Delights!</h2>
+        <p>Your go-to place for amazing baking recipes, tips, and an online store for all your baking needs.</p>
+        <button><a href="#recipes">Explore Recipes</a></button>
+    </section>
+
+    <!-- Featured Recipes Section -->
+    <section id="recipes">
+        <h2>Featured Recipes</h2>
+
+        <div class="recipe-card" onclick="toggleRecipeDetails(this)">
+            <img src="cake.jpg" alt="Delicious Chocolate Cake" />
+            <h3>Chocolate Cake</h3>
+            <p>This rich and moist chocolate cake is perfect for any occasion.</p>
+            <div class="recipe-details">
+                <h3>Ingredients:</h3>
+                <ul>
+                    <li>1 3/4 cups all-purpose flour</li>
+                    <li>1 1/2 cups sugar</li>
+                    <li>1/2 cup cocoa powder</li>
+                    <li>1 1/2 teaspoons baking powder</li>
+                    <li>1 teaspoon baking soda</li>
+                    <li>1 teaspoon vanilla extract</li>
+                    <li>2 eggs</li>
+                    <li>1 cup buttermilk</li>
+                    <li>1/2 cup vegetable oil</li>
+                    <li>1 cup hot water</li>
+                </ul>
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Preheat the oven to 350°F (175°C).</li>
+                    <li>In a bowl, combine dry ingredients.</li>
+                    <li>Add wet ingredients and mix until smooth.</li>
+                    <li>Pour into greased cake pans and bake for 30-35 minutes.</li>
+                    <li>Let cool and frost with your favorite chocolate frosting.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="recipe-card" onclick="toggleRecipeDetails(this)">
+            <img src="cookies.jpg" alt="Fresh Chocolate Chip Cookies" />
+            <h3>Chocolate Chip Cookies</h3>
+            <p>The best chocolate chip cookies you'll ever taste!</p>
+            <div class="recipe-details">
+                <h3>Ingredients:</h3>
+                <ul>
+                    <li>2 1/4 cups all-purpose flour</li>
+                    <li>1/2 teaspoon baking soda</li>
+                    <li>1 cup unsalted butter, softened</li>
+                    <li>1/2 cup granulated sugar</li>
+                    <li>1 cup brown sugar</li>
+                    <li>2 teaspoons vanilla extract</li>
+                    <li>2 large eggs</li>
+                    <li>2 cups chocolate chips</li>
+                </ul>
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Preheat the oven to 375°F (190°C).</li>
+                    <li>Cream the butter and sugars until light and fluffy.</li>
+                    <li>Add eggs one at a time and vanilla extract.</li>
+                    <li>Slowly add dry ingredients and mix until combined.</li>
+                    <li>Stir in chocolate chips.</li>
+                    <li>Scoop dough onto baking sheets and bake for 10-12 minutes.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="recipe-card" onclick="toggleRecipeDetails(this)">
+            <img src="cupcakes.jpg" alt="Delicious Cupcakes" />
+            <h3>Vanilla Cupcakes</h3>
+            <p>Soft, fluffy, and perfect for frosting with your favorite flavors.</p>
+            <div class="recipe-details">
+                <h3>Ingredients:</h3>
+                <ul>
+                    <li>1 1/2 cups all-purpose flour</li>
+                    <li>1 1/2 teaspoons baking powder</li>
+                    <li>1/2 teaspoon salt</li>
+                    <li>1/2 cup unsalted butter, softened</li>
+                    <li>3/4 cup granulated sugar</li>
+                    <li>2 large eggs</li>
+                    <li>2 teaspoons vanilla extract</li>
+                    <li>1/2 cup whole milk</li>
+                </ul>
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Preheat the oven to 350°F (175°C) and line a muffin tin.</li>
+                    <li>Cream the butter and sugar together until light and fluffy.</li>
+                    <li>Add eggs one at a time and vanilla extract.</li>
+                    <li>Gradually mix in the dry ingredients, alternating with milk.</li>
+                    <li>Scoop batter into cupcake liners and bake for 15-18 minutes.</li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2>Baking Tips & Tricks</h2>
+        <article>
+            <h3>How to Perfect Your Cake Frosting</h3>
+            <p>Learn the best techniques for frosting your cakes smoothly...</p>
+            <a href="#">Read More</a>
+        </article>
+        <article>
+            <h3>Common Baking Mistakes to Avoid</h3>
+            <p>Avoid these mistakes to make your baking flawless!</p>
+            <a href="#">Read More</a>
+        </article>
+    </section>
+
+    <!-- Shop Section with E-commerce Simulated -->
+    <section id="store">
+        <h2>Baking Supplies</h2>
+        <p>Get your essential baking tools and ingredients here!</p>
+        <div class="product-card">
+            <img src="whisk.jpg" alt="Baking Whisk">
+            <h3>Premium Baking Whisk</h3>
+            <p>Perfect for all your mixing needs. Lightweight and durable.</p>
+            <button onclick="addToCart('Premium Baking Whisk')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="measuring_cups.jpg" alt="Measuring Cups">
+            <h3>Measuring Cups</h3>
+            <p>Accurate and reliable, essential for perfect measurements.</p>
+            <button onclick="addToCart('Measuring Cups')">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- User Login Section -->
+    <section id="login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are passionate about baking and want to share that passion with you. Here, you'll find delicious recipes, helpful baking tips, and everything you need to improve your baking skills!</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Baking Delights | All rights reserved</p>
+        <div class="social-media">
+            <a href="#">Instagram</a> | <a href="#">Pinterest</a> | <a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <!-- Script for Smooth Scrolling, Cart Function, and User Login -->
+    <script>
+        // Smooth scrolling
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cart functionality
+        let cart = [];
+        function addToCart(productName) {
+            cart.push(productName);
+            alert(`${productName} added to cart!`);
+        }
+
+        // Toggle recipe details visibility
+        function toggleRecipeDetails(card) {
+            card.classList.toggle("expanded");
+        }
+
+        // Login form handling (simplified)
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username && password) {
+                alert(`Welcome back, ${username}!`);
+            } else {
+                alert('Please enter both username and password.');
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
